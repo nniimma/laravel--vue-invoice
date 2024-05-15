@@ -9,7 +9,7 @@
 
     const getInvoices = async () => {
         let response = await axios.get('/api/get_all_invoices')
-        // console.log('response', response)
+        console.log('response', response)
         invoices.value = response.data.invoices
     }
 </script>
@@ -75,7 +75,7 @@
                     <a href="#" class="table--items--transactionId">{{ item.id }}</a>
                     <p>{{ item.date }}</p>
                     <p>{{ item.number }}</p>
-                    <p>{{ item.customer_id }}</p>
+                    <p>{{ item.customer ? item.customer.firstname : ''  }}</p>
                     <p>{{ item.due_date }}</p>
                     <p> $ {{ item.total }}</p>
                 </div>
