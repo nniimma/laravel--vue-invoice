@@ -1,7 +1,8 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import InvoiceIndex from '../components/invoices/Index.vue'
 import NotFound from "../components/NotFound.vue";
-import newInvoice from '../components/invoices/new.vue'
+import createInvoice from '../components/invoices/create.vue'
+import showInvoice from '../components/invoices/show.vue'
 
 const routes = [
     {
@@ -15,7 +16,12 @@ const routes = [
     },
     {
         path: '/invoice/new',
-        component: newInvoice
+        component: createInvoice
+    },
+    {
+        path: '/invoice/show/:id',
+        component: showInvoice,
+        props: true
     }
 ]
 

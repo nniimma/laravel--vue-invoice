@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 
+use function Laravel\Prompts\select;
+
 class InvoiceController extends Controller
 {
     public function index()
@@ -99,5 +101,14 @@ class InvoiceController extends Controller
 
             InvoiceItem::create($itemdata);
         }
+    }
+
+    public function show($id)
+    {
+        $invoice = Invoice::with(['customer', 'invoice_items.product'])->find($id);
+
+        return response()->json([
+            'invoice' => $invoice
+        ], 200);
     }
 }
