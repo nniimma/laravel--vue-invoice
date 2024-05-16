@@ -220,6 +220,7 @@ ul {
 .table--items--transactionId {
     color: #006fbb;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .input {
