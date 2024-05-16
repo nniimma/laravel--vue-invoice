@@ -21,10 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('get_all_invoices', [InvoiceController::class, 'get_all_invoice']);
-Route::get('/search_invoice', [InvoiceController::class, 'search_invoice']);
-Route::get('/create_invoice', [InvoiceController::class, 'create_invoice']);
-Route::post('/add_invoice', [InvoiceController::class, 'add_invoice']);
+Route::get('/get_all_invoices', [InvoiceController::class, 'index']);
+Route::get('/search_invoice', [InvoiceController::class, 'search']);
+Route::get('/create_invoice', [InvoiceController::class, 'create']);
+Route::post('/add_invoice', [InvoiceController::class, 'store']);
 
 Route::get('/customers', [CustomerController::class, 'all_customers']);
 

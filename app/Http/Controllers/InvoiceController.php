@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class InvoiceController extends Controller
 {
-    public function get_all_invoice()
+    public function index()
     {
         $invoices = Invoice::with('customer')->orderBy('id', 'DESC')->get();
         return response()->json([
@@ -19,7 +19,7 @@ class InvoiceController extends Controller
         ], 200);
     }
 
-    public function search_invoice(Request $request)
+    public function search(Request $request)
     {
         $search = $request->get('s');
         if ($search != null) {
@@ -41,7 +41,7 @@ class InvoiceController extends Controller
         }
     }
 
-    public function create_invoice(Request $request)
+    public function create(Request $request)
     {
         $counter = Counter::where('key', 'invoice')->first();
         $random = Counter::where('key', 'invoice')->first();
@@ -75,7 +75,7 @@ class InvoiceController extends Controller
         return response()->json($formData);
     }
 
-    public function add_invoice(Request $request)
+    public function store(Request $request)
     {
         $invoiceitem = $request->input('invoice_item');
 
