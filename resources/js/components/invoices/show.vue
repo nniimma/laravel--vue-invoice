@@ -28,7 +28,7 @@
                     </li>
                     <li>
                         <!-- Select Btn Option -->
-                        <button class="selectBtnFlat">
+                        <button class="selectBtnFlat" @click="onEdit(form.id)">
                             <i class=" fas fa-reply"></i>
                             Edit
                         </button>
@@ -147,8 +147,12 @@
 </template>
 <script setup>
     import { onMounted, ref } from "vue";
+    import { useRouter } from "vue-router";
+
+    const router = useRouter()
 
     let form = ref({id: ''})
+
 
     const props = defineProps({
         id:{
@@ -174,6 +178,10 @@
         router.push('/').catch(() => {
 
         })
+    }
+
+    const onEdit = (id) => {
+        router.push('/invoice/edit/'+id)
     }
 </script>
 <style lang="css" scoped>
