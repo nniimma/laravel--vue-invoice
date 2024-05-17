@@ -20,7 +20,7 @@
                 <ul  class="card__header-list">
                     <li>
                         <!-- Select Btn Option -->
-                        <button class="selectBtnFlat">
+                        <button class="selectBtnFlat" @click="print()">
                             <i class="fas fa-print"></i>
                             Print
                         </button>
@@ -167,6 +167,13 @@
         // console.log(response.data.invoice)
         form.value =  response.data.invoice
         customer = response.data.invoice.customer.firstname
+    }
+
+    const print = () => {
+        window.print()
+        router.push('/').catch(() => {
+
+        })
     }
 </script>
 <style lang="css" scoped>
